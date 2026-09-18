@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Labours.com</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #172033;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+header button {
+    background: #fbbf24;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #111827, #26364f);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero span {
+    color: #fbbf24;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #d1d5db;
+    margin-bottom: 30px;
+}
+
+.main-btn {
+    border: none;
+    background: #fbbf24;
+    color: #111827;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section {
+    padding: 55px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.option {
+    border: 2px solid #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.option:hover {
+    border-color: #fbbf24;
+    background: #fffbeb;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #f59e0b;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #111827;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.secondary {
+    background: #e5e7eb;
+    color: #111827;
+    margin-top: 10px;
+}
+
+.dashboard {
+    display: none;
+    padding: 40px 7%;
+}
+
+.dashboard-header {
+    background: #111827;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.offer {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+}
+
+.offer-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.accept {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.reject {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.progress {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 45%;
+    height: 100%;
+    background: #f59e0b;
+    border-radius: 10px;
+}
+
+.photo-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    background: #111827;
+    color: white;
+    padding: 30px;
+}
+
+@media(max-width: 750px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Labours.com</div>
+    <button onclick="openLogin()">Sign In</button>
+</header>
+
+<div class="hero">
+    <div>
+        <h1>Work Connects <span>People</span></h1>
+        <p>Find skilled workers. Find work. Build better.</p>
+        <button class="main-btn" onclick="openLogin()">
+            Get Started
+        </button>
+    </div>
+</div>
+
+<section>
+    <div class="section-title">
+        <h2>How Labours.com Works</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>👷 For Labour</h3>
+            <p>
+                Create your professional profile, select your profession,
+                set your estimated price and receive work offers.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🏠 For Users</h3>
+            <p>
+                Post your work requirement, set your budget and connect
+                with suitable professionals.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📸 Work Tracking</h3>
+            <p>
+                Workers can upload progress photos and material information
+                so customers can follow the project.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2>Welcome to Labours.com</h2>
+
+<p style="margin-bottom:20px;">
+Choose how you want to continue
+</p>
+
+<div class="option-grid">
+
+<div class="option" onclick="startLabour()">
+<h3>👷 Labour</h3>
+<p>Find work</p>
+</div>
+
+<div class="option" onclick="startUser()">
+<h3>🏠 User</h3>
+<p>Find workers</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- LABOUR REGISTRATION -->
+
+<div class="modal" id="labourModal">
+
+<div class="modal-box">
+
+<span class="close" onclick="closeAll()">×</span>
+
+<h2>Labour Registration</h2>
+
+<div class="form-group">
+<label>Name</label>
+<input id="labourName" placeholder="Enter your name">
+</div>
+
+<div class="form-group">
+<label>Mobile Number</label>
+<input id="labourMobile" type="tel" maxlength="10"
+placeholder="10 digit mobile number">
+</div>
+
+<button class="btn" onclick="sendLabourOTP()">
+Verify Mobile Number
+</button>
+
+<div id="labourOtpBox" style="display:none;margin-top:20px;">
+
+<div class="form-group">
+<label>Enter OTP</label>
+<input id="labourOtp" maxlength="6"
+placeholder="Demo OTP: 123456">
+</div>
+
+<button class="btn" onclick="verifyLabourOTP()">
+Verify OTP
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- LABOUR PROFILE -->
+
+<div class="modal" id="labourProfileModal">
+
+<div class="modal-box">
+
+<h2>Complete Your Profile</h2>
+
+<div class="form-group">
+<label>Aadhaar Verification</label>
+<input id="aadhaar"
+type="text"
+maxlength="12"
+placeholder="Enter Aadhaar number">
+</div>
+
+<p style="font-size:12px;color:#64748b;margin-bottom:15px;">
+Demo only. Do not enter a real Aadhaar number on this prototype.
+Real identity verification should use an authorized verification provider.
+</p>
+
+<div class="form-group">
+<label>Work Experience</label>
+<input id="experience"
+placeholder="Example: 5 years">
+
+<button class="btn secondary"
+onclick="skipExperience()">
+Skip Experience
+</button>
+
+</div>
+
+<div class="form-group">
+<label>Select Profession</label>
+
+<select id="profession">
+
+<option value="">Select profession</option>
+<option>Carpenter</option>
+<option>Mason</option>
+<option>Contractor</option>
+<option>Builder</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Estimated Price</label>
+
+<input id="labourPrice"
+type="number"
+placeholder="₹ Estimated daily/project price">
+
+</div>
+
+<button class="btn" onclick="completeLabourProfile()">
+Create Labour Profile
+</button>
+
+</div>
+</div>
+
+
+<!-- USER REGISTRATION -->
+
+<div class="modal" id="userModal">
+
+<div class="modal-box">
+
+<span class="close" onclick="closeAll()">×</span>
+
+<h2>User Sign In</h2>
+
+<div class="form-group">
+
+<label>Mobile Number</label>
+
+<input id="userMobile"
+type="tel"
+maxlength="10"
+placeholder="10 digit mobile number">
+
+</div>
+
+<button class="btn" onclick="sendUserOTP()">
+Send OTP
+</button>
+
+<div id="userOtpBox" style="display:none;margin-top:20px;">
+
+<div class="form-group">
+
+<label>OTP</label>
+
+<input id="userOtp"
+maxlength="6"
+placeholder="Demo OTP: 123456">
+
+</div>
+
+<button class="btn" onclick="verifyUserOTP()">
+Verify & Continue
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- USER WORK FORM -->
+
+<div class="modal" id="workModal">
+
+<div class="modal-box">
+
+<h2>Post Your Work</h2>
+
+<div class="form-group">
+
+<label>What work do you need?</label>
+
+<select id="workType">
+
+<option>Carpenter</option>
+<option>Mason</option>
+<option>Contractor</option>
+<option>Builder</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Work Description</label>
+
+<textarea id="workDescription"
+rows="4"
+placeholder="Describe your work..."></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Your Price / Budget</label>
+
+<input id="userPrice"
+type="number"
+placeholder="₹ Enter your budget">
+
+</div>
+
+<button class="btn" onclick="postWork()">
+Send Offer to Labour
+</button>
+
+</div>
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<div class="dashboard-header">
+
+<h2 id="dashboardTitle">
+Labour Dashboard
+</h2>
+
+<p id="dashboardSubtitle">
+Manage your work offers
+</p>
+
+</div>
+
+<div id="dashboardContent"></div>
+
+</div>
+
+
+<footer>
+
+<p>© 2026 Labours.com</p>
+
+<p style="margin-top:8px;color:#9ca3af;">
+Connecting skilled workers with people who need them.
+</p>
+
+</footer>
+
+
+<script>
+
+let currentRole = "";
+let labourData = {};
+let userData = {};
+
+function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+function closeAll() {
+    document.querySelectorAll(".modal").forEach(function(modal) {
+        modal.style.display = "none";
+    });
+}
+
+function startLabour() {
+
+    currentRole = "labour";
+
+    closeModal();
+
+    document.getElementById("labourModal").style.display = "flex";
+}
+
+function startUser() {
+
+    currentRole = "user";
+
+    closeModal();
+
+    document.getElementById("userModal").style.display = "flex";
+}
+
+
+/* LABOUR */
+
+function sendLabourOTP() {
+
+    let mobile = document.getElementById("labourMobile").value;
+
+    if(mobile.length !== 10) {
+        alert("Please enter a valid 10 digit mobile number.");
+        return;
+    }
+
+    alert("Demo OTP sent: 123456");
+
+    document.getElementById("labourOtpBox").style.display = "block";
+}
+
+function verifyLabourOTP() {
+
+    let otp = document.getElementById("labourOtp").value;
+
+    if(otp !== "123456") {
+        alert("For this demo use OTP 123456.");
+        return;
+    }
+
+    alert("Mobile verified!");
+
+    document.getElementById("labourModal").style.display = "none";
+
+    document.getElementById("labourProfileModal").style.display = "flex";
+}
+
+function skipExperience() {
+
+    document.getElementById("experience").value = "Not specified";
+
+}
+
+function completeLabourProfile() {
+
+    let name = document.getElementById("labourName").value;
+    let profession = document.getElementById("profession").value;
+    let price = document.getElementById("labourPrice").value;
+
+    if(!name || !profession || !price) {
+
+        alert("Please complete your profile.");
+
+        return;
+    }
+
+    labourData = {
+
+        name: name,
+        profession: profession,
+        price: price
+
+    };
+
+    closeAll();
+
+    showLabourDashboard();
+}
+
+
+/* USER */
+
+function sendUserOTP() {
+
+    let mobile =
+    document.getElementById("userMobile").value;
+
+    if(mobile.length !== 10) {
+
+        alert("Please enter a valid mobile number.");
+
+        return;
+
+    }
+
+    alert("Demo OTP sent: 123456");
+
+    document.getElementById("userOtpBox").style.display = "block";
+}
+
+function verifyUserOTP() {
+
+    let otp =
+    document.getElementById("userOtp").value;
+
+    if(otp !== "123456") {
+
+        alert("For this demo use OTP 123456.");
+
+        return;
+
+    }
+
+    alert("Mobile verified!");
+
+    closeAll();
+
+    document.getElementById("workModal").style.display = "flex";
+}
+
+
+/* WORK */
+
+function postWork() {
+
+    let work =
+    document.getElementById("workType").value;
+
+    let description =
+    document.getElementById("workDescription").value;
+
+    let price =
+    document.getElementById("userPrice").value;
+
+    if(!description || !price) {
+
+        alert("Please enter work details and budget.");
+
+        return;
+
+    }
+
+    userData = {
+
+        work: work,
+        description: description,
+        price: price
+
+    };
+
+    closeAll();
+
+    alert("Your offer has been sent to suitable labour professionals.");
+
+    showUserDashboard();
+
+}
+
+
+/* LABOUR DASHBOARD */
+
+function showLabourDashboard() {
+
+    document.getElementById("dashboard").style.display = "block";
+
+    document.getElementById("dashboardTitle").innerText =
+    "Welcome, " + labourData.name;
+
+    document.getElementById("dashboardSubtitle").innerText =
+    labourData.profession +
+    " • Estimated Price ₹" +
+    labourData.price;
+
+    document.getElementById("dashboardContent").innerHTML = `
+
+        <h2 style="margin-bottom:15px;">
+        Work Offers
+        </h2>
+
+        <div class="offer">
+
+            <h3>🏠 Home Construction Work</h3>
+
+            <p style="margin-top:8px;color:#64748b;">
+            Profession: ${labourData.profession}
+            </p>
+
+            <p style="margin-top:8px;">
+            Customer Budget:
+            <strong>₹25,000</strong>
+            </p>
+
+            <p style="margin-top:8px;">
+            Location: Your selected work area
+            </p>
+
+            <div class="offer-actions">
+
+                <button class="accept"
+                onclick="acceptOffer()">
+                Accept
+                </button>
+
+                <button class="reject"
+                onclick="rejectOffer()">
+                Reject
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="offer">
+
+            <h3>🔨 Repair & Construction Work</h3>
+
+            <p style="margin-top:8px;">
+            Customer Offer:
+            <strong>₹15,000</strong>
+            </p>
+
+            <div class="offer-actions">
+
+                <button class="accept"
+                onclick="acceptOffer()">
+                Accept
+                </button>
+
+                <button class="reject"
+                onclick="rejectOffer()">
+                Reject
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+function acceptOffer() {
+
+    document.getElementById("dashboardContent").innerHTML = `
+
+        <div class="offer">
+
+            <h2>✅ Work Accepted</h2>
+
+            <p style="margin-top:10px;">
+            You have accepted the customer's offer.
+            </p>
+
+            <h3 style="margin-top:25px;">
+            Work Progress
+            </h3>
+
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+
+            <p style="margin-top:10px;">
+            45% completed
+            </p>
+
+            <div class="photo-box">
+
+                <h3>📸 Upload Work Progress</h3>
+
+                <p style="margin:10px 0;">
+                Upload a photo so the customer can see
+                the current work progress.
+                </p>
+
+                <input
+                type="file"
+                accept="image/*"
+                onchange="photoUploaded(event)"
+                >
+
+            </div>
+
+            <div class="form-group"
+            style="margin-top:20px;">
+
+                <label>
+                Material Used / Cost
+                </label>
+
+                <input
+                placeholder="Example: Cement ₹5,000"
+                >
+
+            </div>
+
+            <button class="btn"
+            onclick="alert('Progress submitted to customer!')">
+            Update Customer
+            </button>
+
+        </div>
+
+    `;
+}
+
+function rejectOffer() {
+
+    alert("Offer rejected.");
+
+}
+
+
+/* USER DASHBOARD */
+
+function showUserDashboard() {
+
+    document.getElementById("dashboard").style.display = "block";
+
+    document.getElementById("dashboardTitle").innerText =
+    "User Dashboard";
+
+    document.getElementById("dashboardSubtitle").innerText =
+    "Track your work and labour offers";
+
+    document.getElementById("dashboardContent").innerHTML = `
+
+        <div class="offer">
+
+            <h2>📋 Your Work Request</h2>
+
+            <p style="margin-top:12px;">
+            Profession:
+            <strong>${userData.work}</strong>
+            </p>
+
+            <p style="margin-top:8px;">
+            Budget:
+            <strong>₹${userData.price}</strong>
+            </p>
+
+            <p style="margin-top:8px;">
+            Description:
+            ${userData.description}
+            </p>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h2>👷 Labour Offers</h2>
+
+            <p style="margin-top:10px;">
+            Suitable labour professionals can respond
+            to your work request.
+            </p>
+
+            <div style="margin-top:20px;">
+
+                <h3>
+                ${userData.work} Professional
+                </h3>
+
+                <p style="margin-top:8px;">
+                Labour Price: ₹20,000
+                </p>
+
+                <button
+                class="accept"
+                style="margin-top:15px;"
+                onclick="alert('Labour selected!')">
+                Select Labour
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h2>📸 Work Progress</h2>
+
+            <p style="margin-top:10px;">
+            Progress photos and material information
+            from your selected labour will appear here.
+            </p>
+
+            <div class="progress">
+
+                <div
+                class="progress-bar"
+                style="width:45%;">
+                </div>
+
+            </div>
+
+            <p style="margin-top:10px;">
+            Current Progress: 45%
+            </p>
+
+        </div>
+
+    `;
+}
+
+
+function photoUploaded(event) {
+
+    if(event.target.files.length > 0) {
+
+        alert(
+        "Photo selected successfully. " +
+        "In the production version it will be securely uploaded to the server."
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
