@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labours.com | Find Work. Build Better.</title>
+
+<style>
+:root{
+  --navy:#101827;
+  --navy2:#1b2940;
+  --yellow:#f5b82e;
+  --orange:#f59e0b;
+  --green:#16a34a;
+  --red:#dc2626;
+  --blue:#2563eb;
+  --bg:#f4f6f9;
+  --white:#fff;
+  --text:#172033;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --shadow:0 8px 30px rgba(15,23,42,.08);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Inter,Arial,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* HEADER */
+
+header{
+  height:72px;
+  background:var(--navy);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:var(--yellow);
+}
+
+.header-actions{
+  display:flex;
+  gap:10px;
+}
+
+/* BUTTONS */
+
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:13px 20px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.primary{
+  background:var(--yellow);
+  color:#111827;
+}
+
+.dark{
+  background:var(--navy);
+  color:white;
+}
+
+.green{
+  background:var(--green);
+  color:white;
+}
+
+.red{
+  background:var(--red);
+  color:white;
+}
+
+.outline{
+  background:white;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.full{
+  width:100%;
+}
+
+/* HERO */
+
+.hero{
+  min-height:560px;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(245,184,46,.25),transparent 25%),
+    linear-gradient(135deg,var(--navy),#263953);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.badge{
+  display:inline-block;
+  background:rgba(245,184,46,.15);
+  border:1px solid rgba(245,184,46,.4);
+  color:#ffd66b;
+  padding:8px 15px;
+  border-radius:50px;
+  margin-bottom:22px;
+  font-size:14px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,72px);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--yellow);
+}
+
+.hero p{
+  color:#d6deea;
+  font-size:20px;
+  line-height:1.6;
+  max-width:700px;
+  margin:auto;
+}
+
+.hero-buttons{
+  margin-top:32px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* SECTIONS */
+
+section{
+  padding:70px 7%;
+}
+
+.section-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 40px;
+}
+
+.section-head h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+/* CARDS */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.card-icon{
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  background:#fff8df;
+  border-radius:14px;
+  font-size:27px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin-bottom:9px;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:500;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:520px;
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  padding:30px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  border:0;
+  background:none;
+  font-size:28px;
+  color:#64748b;
+}
+
+/* ROLE */
+
+.role-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:20px;
+}
+
+.role{
+  border:2px solid var(--border);
+  border-radius:14px;
+  padding:30px 15px;
+  text-align:center;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.role:hover{
+  border-color:var(--yellow);
+  background:#fffaf0;
+}
+
+.role .emoji{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+/* FORMS */
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+input,select,textarea{
+  width:100%;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  padding:13px;
+  background:white;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(245,158,11,.1);
+}
+
+.small{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+  display:none;
+  min-height:calc(100vh - 72px);
+}
+
+.dashboard.active{
+  display:flex;
+}
+
+.sidebar{
+  width:240px;
+  background:var(--navy);
+  color:white;
+  padding:25px 15px;
+  flex-shrink:0;
+}
+
+.side-logo{
+  padding:10px 15px 30px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.side-logo span{
+  color:var(--yellow);
+}
+
+.side-link{
+  width:100%;
+  background:none;
+  border:0;
+  color:#cbd5e1;
+  text-align:left;
+  padding:13px 15px;
+  border-radius:9px;
+  margin-bottom:5px;
+}
+
+.side-link:hover,
+.side-link.active{
+  background:#25344d;
+  color:white;
+}
+
+.dash-main{
+  flex:1;
+  padding:35px;
+  max-width:1400px;
+}
+
+.dash-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:25px;
+  gap:15px;
+}
+
+.dash-top h1{
+  font-size:30px;
+}
+
+.status{
+  padding:8px 13px;
+  border-radius:50px;
+  background:#dcfce7;
+  color:#166534;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.stat .number{
+  font-size:28px;
+  font-weight:900;
+  margin-top:8px;
+}
+
+.stat p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* JOB */
+
+.job-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:22px;
+  margin-bottom:16px;
+  box-shadow:0 4px 18px rgba(15,23,42,.04);
+}
+
+.job-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.job-title{
+  font-size:20px;
+  font-weight:800;
+}
+
+.price{
+  color:var(--green);
+  font-weight:900;
+  font-size:19px;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0;
+}
+
+.meta span{
+  background:#f1f5f9;
+  padding:7px 10px;
+  border-radius:7px;
+  color:#475569;
+  font-size:13px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+/* PROGRESS */
+
+.progress-wrap{
+  margin:20px 0;
+}
+
+.progress-line{
+  height:12px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--orange),var(--yellow));
+  width:45%;
+}
+
+.timeline{
+  border-left:3px solid #e2e8f0;
+  margin:25px 0;
+  padding-left:20px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:22px;
+}
+
+.timeline-item:before{
+  content:"";
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#cbd5e1;
+  position:absolute;
+  left:-27px;
+  top:4px;
+}
+
+.timeline-item.done:before{
+  background:var(--green);
+}
+
+.timeline-item h4{
+  margin-bottom:4px;
+}
+
+.timeline-item p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* PHOTO */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+
+.photo-grid img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* MOBILE NAV */
+
+.mobile-nav{
+  display:none;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--navy);
+  color:white;
+  padding:15px 20px;
+  border-radius:10px;
+  z-index:1000;
+  box-shadow:var(--shadow);
+  transform:translateY(100px);
+  opacity:0;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--navy);
+  color:#cbd5e1;
+  padding:40px 7%;
+  text-align:center;
+}
+
+footer strong{
+  color:var(--yellow);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+
+  header{
+    padding:0 18px;
+  }
+
+  .header-actions .outline{
+    display:none;
+  }
+
+  section{
+    padding:50px 18px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:500px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .role-grid{
+    grid-template-columns:1fr;
+  }
+
+  .dashboard.active{
+    display:block;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .dash-main{
+    padding:22px 15px 90px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .mobile-nav{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:var(--navy);
+    z-index:200;
+    justify-content:space-around;
+  }
+
+  .mobile-nav button{
+    background:none;
+    border:0;
+    color:#cbd5e1;
+    font-size:12px;
+  }
+
+  .mobile-nav button span{
+    display:block;
+    font-size:20px;
+    margin-bottom:3px;
+  }
+
+  .job-top{
+    flex-direction:column;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header id="mainHeader">
+
+  <div class="logo">
+    LABOURS<span>.COM</span>
+  </div>
+
+  <div class="header-actions">
+    <button class="btn outline" onclick="openRole()">Sign In</button>
+    <button class="btn primary" onclick="openRole()">Get Started</button>
+  </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="homePage">
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      🇮🇳 India's Skilled Work Marketplace
+    </div>
+
+    <h1>
+      Find Work.<br>
+      <span>Build Better.</span>
+    </h1>
+
+    <p>
+      Labours.com connects customers with skilled professionals
+      for construction, renovation and home improvement work.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button
+        class="btn primary"
+        onclick="openRole()">
+        👷 Find Skilled Labour
+      </button>
+
+      <button
+        class="btn outline"
+        onclick="openRole()">
+        🛠️ Find Work
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-head">
+
+    <h2>How Labours.com Works</h2>
+
+    <p>
+      A simple way for customers and skilled professionals
+      to connect and manage projects.
+    </p>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="card-icon">👷</div>
+
+      <h3>Skilled Professionals</h3>
+
+      <p>
+        Carpenters, masons, contractors and builders
+        can create professional profiles.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">📋</div>
+
+      <h3>Post Your Work</h3>
+
+      <p>
+        Customers can describe their work requirement,
+        budget and preferred schedule.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">🤝</div>
+
+      <h3>Receive Offers</h3>
+
+      <p>
+        Suitable professionals can review the job
+        and accept or reject the offer.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">📸</div>
+
+      <h3>Track Progress</h3>
+
+      <p>
+        Work progress, photos and reported material
+        expenses can be shared with the customer.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section style="background:white">
+
+  <div class="section-head">
+
+    <h2>Popular Professionals</h2>
+
+    <p>Select the type of professional you need.</p>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">🔨</div>
+      <h3>Carpenter</h3>
+      <p>Furniture, doors, woodwork and modular work.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🧱</div>
+      <h3>Mason</h3>
+      <p>Brick work, plaster, tiles and concrete work.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏗️</div>
+      <h3>Contractor</h3>
+      <p>Renovation, civil work and construction projects.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h3>Builder</h3>
+      <p>Residential and commercial construction projects.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="section-head">
+
+    <h2>Built Around Transparency</h2>
+
+    <p>
+      Customers can follow project updates and professionals
+      can keep their work information organized.
+    </p>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Mobile Friendly</h3>
+      <p>Designed for phones, tablets and desktop screens.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <h3>Job Location</h3>
+      <p>Job details can include the customer's selected location.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📷</div>
+      <h3>Photo Updates</h3>
+      <p>Upload work-progress photos after project milestones.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Expense Tracking</h3>
+      <p>Record labour charges and reported material expenses.</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= ROLE MODAL ================= -->
+
+<div class="modal" id="roleModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('roleModal')">
+      ×
+    </button>
+
+    <h2>Welcome to Labours.com</h2>
+
+    <p class="small">
+      Choose how you want to use Labours.com.
+    </p>
+
+    <div class="role-grid">
+
+      <div class="role" onclick="openLabourLogin()">
+
+        <div class="emoji">👷</div>
+
+        <h3>Labour</h3>
+
+        <p class="small">
+          Find work & receive offers
+        </p>
+
+      </div>
+
+      <div class="role" onclick="openUserLogin()">
+
+        <div class="emoji">🏠</div>
+
+        <h3>Customer</h3>
+
+        <p class="small">
+          Hire skilled professionals
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= LABOUR LOGIN ================= -->
+
+<div class="modal" id="labourLoginModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('labourLoginModal')">
+      ×
+    </button>
+
+    <h2>Labour Sign In</h2>
+
+    <p class="small">
+      Enter your mobile number to continue.
+    </p>
+
+    <br>
+
+    <div class="form-group">
+
+      <label>Full Name</label>
+
+      <input
+        id="labourName"
+        placeholder="Enter your full name">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Mobile Number</label>
+
+      <input
+        id="labourMobile"
+        maxlength="10"
+        type="tel"
+        placeholder="10 digit mobile number">
+
+    </div>
+
+    <button
+      class="btn dark full"
+      onclick="sendLabourOTP()">
+
+      Send OTP
+
+    </button>
+
+    <div id="labourOtpArea" class="hidden" style="margin-top:20px">
+
+      <div class="form-group">
+
+        <label>Enter OTP</label>
+
+        <input
+          id="labourOtp"
+          maxlength="6"
+          placeholder="Demo OTP: 123456">
+
+      </div>
+
+      <button
+        class="btn green full"
+        onclick="verifyLabourOTP()">
+
+        Verify Mobile
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= LABOUR PROFILE ================= -->
+
+<div class="modal" id="labourProfileModal">
+
+  <div class="modal-box">
+
+    <h2>Complete Labour Profile</h2>
+
+    <p class="small">
+      Step 2 of 4 — Identity verification
+    </p>
+
+    <br>
+
+    <div class="form-group">
+
+      <label>Aadhaar / KYC Verification</label>
+
+      <input
+        id="demoAadhaar"
+        maxlength="12"
+        placeholder="Demo verification only">
+
+    </div>
+
+    <div class="card" style="padding:15px;margin-bottom:18px">
+
+      <strong>🔐 Privacy Notice</strong>
+
+      <p class="small" style="margin-top:7px">
+        Do not enter a real Aadhaar number into this prototype.
+        Production KYC should be handled by an authorized provider
+        through a secure backend.
+      </p>
+
+    </div>
+
+    <button
+      class="btn outline full"
+      onclick="demoKyc()">
+
+      Verify Identity (Demo)
+
+    </button>
+
+    <br><br>
+
+    <div class="form-group">
+
+      <label>Work Experience</label>
+
+      <select id="experience">
+
+        <option value="">Select experience</option>
+        <option>Less than 1 year</option>
+        <option>1–3 years</option>
+        <option>3–5 years</option>
+        <option>5–10 years</option>
+        <option>10+ years</option>
+
+      </select>
+
+    </div>
+
+    <button
+      class="btn outline full"
+      onclick="document.getElementById('experience').value='Not specified'">
+
+      Skip Experience
+
+    </button>
+
+    <br><br>
+
+    <div class="form-group">
+
+      <label>Profession</label>
+
+      <select id="profession">
+
+        <option value="">Select profession</option>
+        <option>Carpenter</option>
+        <option>Mason</option>
+        <option>Contractor</option>
+        <option>Builder</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Estimated Price</label>
+
+      <input
+        id="labourPrice"
+        type="number"
+        placeholder="₹ Example: 1000">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Price Type</label>
+
+      <select id="priceType">
+
+        <option>Per Day</option>
+        <option>Per Hour</option>
+        <option>Project Based</option>
+
+      </select>
+
+    </div>
+
+    <button
+      class="btn primary full"
+      onclick="createLabourProfile()">
+
+      Create Labour Profile
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= USER LOGIN ================= -->
+
+<div class="modal" id="userLoginModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('userLoginModal')">
+      ×
+    </button>
+
+    <h2>Customer Sign In</h2>
+
+    <p class="small">
+      Enter your mobile number to continue.
+    </p>
+
+    <br>
+
+    <div class="form-group">
+
+      <label>Your Name</label>
+
+      <input
+        id="userName"
+        placeholder="Enter your name">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Mobile Number</label>
+
+      <input
+        id="userMobile"
+        maxlength="10"
+        type="tel"
+        placeholder="10 digit mobile number">
+
+    </div>
+
+    <button
+      class="btn dark full"
+      onclick="sendUserOTP()">
+
+      Send OTP
+
+    </button>
+
+    <div id="userOtpArea" class="hidden" style="margin-top:20px">
+
+      <div class="form-group">
+
+        <label>Enter OTP</label>
+
+        <input
+          id="userOtp"
+          maxlength="6"
+          placeholder="Demo OTP: 123456">
+
+      </div>
+
+      <button
+        class="btn green full"
+        onclick="verifyUserOTP()">
+
+        Verify & Continue
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= USER JOB MODAL ================= -->
+
+<div class="modal" id="postJobModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal('postJobModal')">
+      ×
+    </button>
+
+    <h2>Post a New Job</h2>
+
+    <p class="small">
+      Tell professionals what work you need.
+    </p>
+
+    <br>
+
+    <div class="form-group">
+
+      <label>Profession Required</label>
+
+      <select id="jobProfession">
+
+        <option>Carpenter</option>
+        <option>Mason</option>
+        <option>Contractor</option>
+        <option>Builder</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Job Title</label>
+
+      <input
+        id="jobTitle"
+        placeholder="Example: Bathroom Renovation">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Work Description</label>
+
+      <textarea
+        id="jobDescription"
+        rows="4"
+        placeholder="Describe the work you need..."></textarea>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Location</label>
+
+      <input
+        id="jobLocation"
+        placeholder="Enter project location">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Your Budget</label>
+
+      <input
+        id="jobBudget"
+        type="number"
+        placeholder="₹ Example: 25000">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Material</label>
+
+      <select id="materialOption">
+
+        <option>Customer provides material</option>
+        <option>Labour provides material</option>
+        <option>Discuss with labour</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Preferred Start Date</label>
+
+      <input id="startDate" type="date">
+
+    </div>
+
+    <button
+      class="btn primary full"
+      onclick="postJob()">
+
+      Post Job & Find Labour
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= LABOUR DASHBOARD ================= -->
+
+<div class="dashboard" id="labourDashboard">
+
+  <aside class="sidebar">
+
+    <div class="side-logo">
+      LABOURS<span>.COM</span>
+    </div>
+
+    <button class="side-link active">
+      🏠 Home
+    </button>
+
+    <button class="side-link">
+      📩 Job Offers
+    </button>
+
+    <button class="side-link">
+      🛠️ Active Jobs
+    </button>
+
+    <button class="side-link">
+      💰 Earnings
+    </button>
+
+    <button class="side-link">
+      👤 Profile
+    </button>
+
+    <button class="side-link" onclick="logout()">
+      🚪 Logout
+    </button>
+
+  </aside>
+
+  <main class="dash-main">
+
+    <div class="dash-top">
+
+      <div>
+        <h1 id="labourWelcome">
+          Welcome, Labour
+        </h1>
+
+        <p class="small">
+          Manage your work and offers.
+        </p>
+      </div>
+
+      <span class="status">
+        ● AVAILABLE
+      </span>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <p>New Offers</p>
+        <div class="number">3</div>
+      </div>
+
+      <div class="stat">
+        <p>Active Jobs</p>
+        <div class="number">1</div>
+      </div>
+
+      <div class="stat">
+        <p>Completed</p>
+        <div class="number">24</div>
+      </div>
+
+      <div class="stat">
+        <p>Rating</p>
+        <div class="number">4.7 ⭐</div>
+      </div>
+
+    </div>
+
+    <div id="labourDashboardContent">
+
+      <h2 style="margin-bottom:15px">
+        New Work Offers
+      </h2>
+
+      <div class="job-card">
+
+        <div class="job-top">
+
+          <div>
+
+            <div class="job-title">
+              🏠 Bathroom Renovation
+            </div>
+
+            <div class="meta">
+
+              <span>🧱 Mason</span>
+              <span>📍 4.2 km</span>
+              <span>⏱️ 5 days</span>
+
+            </div>
+
+          </div>
+
+          <div class="price">
+            ₹18,000
+          </div>
+
+        </div>
+
+        <p class="small">
+          Customer needs bathroom wall plastering,
+          tile work and minor repair work.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn green"
+            onclick="acceptJob()">
+
+            ✓ Accept
+
+          </button>
+
+          <button
+            class="btn red"
+            onclick="rejectJob(this)">
+
+            ✕ Reject
+
+          </button>
+
+          <button
+            class="btn outline"
+            onclick="showToast('Job details opened')">
+
+            View Details
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="job-card">
+
+        <div class="job-top">
+
+          <div>
+
+            <div class="job-title">
+              🔨 Kitchen Cabinet Work
+            </div>
+
+            <div class="meta">
+              <span>🔨 Carpenter</span>
+              <span>📍 6.1 km</span>
+              <span>⏱️ 4 days</span>
+            </div>
+
+          </div>
+
+          <div class="price">
+            ₹15,000
+          </div>
+
+        </div>
+
+        <p class="small">
+          Kitchen cabinet installation and woodwork.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn green"
+            onclick="showToast('Demo offer accepted')">
+
+            ✓ Accept
+
+          </button>
+
+          <button
+            class="btn red"
+            onclick="rejectJob(this)">
+
+            ✕ Reject
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="mobile-nav">
+
+    <button>
+      <span>🏠</span>Home
+    </button>
+
+    <button>
+      <span>📩</span>Offers
+    </button>
+
+    <button>
+      <span>🛠️</span>Jobs
+    </button>
+
+    <button>
+      <span>👤</span>Profile
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= USER DASHBOARD ================= -->
+
+<div class="dashboard" id="userDashboard">
+
+  <aside class="sidebar">
+
+    <div class="side-logo">
+      LABOURS<span>.COM</span>
+    </div>
+
+    <button class="side-link active">
+      🏠 Home
+    </button>
+
+    <button class="side-link">
+      📋 My Jobs
+    </button>
+
+    <button class="side-link">
+      📩 Offers
+    </button>
+
+    <button class="side-link">
+      💬 Messages
+    </button>
+
+    <button class="side-link">
+      👤 Profile
+    </button>
+
+    <button class="side-link" onclick="logout()">
+      🚪 Logout
+    </button>
+
+  </aside>
+
+  <main class="dash-main">
+
+    <div class="dash-top">
+
+      <div>
+
+        <h1 id="userWelcome">
+          Welcome, Customer
+        </h1>
+
+        <p class="small">
+          Find professionals and manage your projects.
+        </p>
+
+      </div>
+
+      <button
+        class="btn primary"
+        onclick="openPostJob()">
+
+        + Post New Job
+
+      </button>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <p>Active Projects</p>
+        <div class="number">1</div>
+      </div>
+
+      <div class="stat">
+        <p>Offers Received</p>
+        <div class="number">4</div>
+      </div>
+
+      <div class="stat">
+        <p>Completed Projects</p>
+        <div class="number">7</div>
+      </div>
+
+      <div class="stat">
+        <p>Saved Labour</p>
+        <div class="number">3</div>
+      </div>
+
+    </div>
+
+    <div id="userDashboardContent">
+
+      <h2 style="margin-bottom:15px">
+        Your Active Project
+      </h2>
+
+      <div class="job-card">
+
+        <div class="job-top">
+
+          <div>
+
+            <div class="job-title">
+              🧱 House Wall Plastering
+            </div>
+
+            <div class="meta">
+
+              <span>👷 Raj Kumar</span>
+              <span>🧱 Mason</span>
+              <span>📍 Noida</span>
+
+            </div>
+
+          </div>
+
+          <div class="price">
+            ₹20,000
+          </div>
+
+        </div>
+
+        <div class="progress-wrap">
+
+          <div style="display:flex;justify-content:space-between">
+
+            <strong>Project Progress</strong>
+
+            <strong id="customerProgressText">
+              45%
+            </strong>
+
+          </div>
+
+          <div class="progress-line">
+            <div
+              id="customerProgress"
+              class="progress-fill"
+              style="width:45%">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item done">
+
+            <h4>Job Posted</h4>
+
+            <p>Customer created the work request.</p>
+
+          </div>
+
+          <div class="timeline-item done">
+
+            <h4>Labour Selected</h4>
+
+            <p>Raj Kumar accepted the project.</p>
+
+          </div>
+
+          <div class="timeline-item done">
+
+            <h4>Work Started</h4>
+
+            <p>Work started on the project.</p>
+
+          </div>
+
+          <div class="timeline-item done">
+
+            <h4>Work In Progress</h4>
+
+            <p>Latest progress update: 45%.</p>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <h4>Completed</h4>
+
+            <p>Waiting for final completion.</p>
+
+          </div>
+
+        </div>
+
+        <h3>
+          Latest Progress Photos
+        </h3>
+
+        <div id="customerPhotos" class="photo-grid">
+
+          <div
+            style="
+            background:#e2e8f0;
+            height:150px;
+            border-radius:10px;
+            display:grid;
+            place-items:center;
+            color:#64748b">
+
+            DEMO PHOTO
+
+          </div>
+
+          <div
+            style="
+            background:#e2e8f0;
+            height:150px;
+            border-radius:10px;
+            display:grid;
+            place-items:center;
+            color:#64748b">
+
+            DEMO PHOTO
+
+          </div>
+
+        </div>
+
+        <br>
+
+        <h3>Material & Expenses</h3>
+
+        <div class="meta">
+
+          <span>🧱 Cement ₹3,500</span>
+          <span>🏖️ Sand ₹2,000</span>
+          <span>🔧 Other ₹700</span>
+
+        </div>
+
+        <strong>
+          Total Reported Material:
+          ₹6,200
+        </strong>
+
+      </div>
+
+
+      <h2 style="margin:30px 0 15px">
+        Labour Offers
+      </h2>
+
+      <div class="job-card">
+
+        <div class="job-top">
+
+          <div>
+
+            <div class="job-title">
+              👷 Raj Kumar
+            </div>
+
+            <div class="meta">
+
+              <span>🧱 Mason</span>
+              <span>⭐ 4.7</span>
+              <span>✓ Verified Profile</span>
+              <span>24 Jobs</span>
+
+            </div>
+
+          </div>
+
+          <div class="price">
+            ₹20,000
+          </div>
+
+        </div>
+
+        <p class="small">
+          Experience: 6 years · Service area: Noida
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn green"
+            onclick="selectLabour()">
+
+            Select Labour
+
+          </button>
+
+          <button
+            class="btn outline"
+            onclick="showToast('Labour profile opened')">
+
+            View Profile
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="mobile-nav">
+
+    <button>
+      <span>🏠</span>Home
+    </button>
+
+    <button>
+      <span>📋</span>Jobs
+    </button>
+
+    <button>
+      <span>📩</span>Offers
+    </button>
+
+    <button>
+      <span>👤</span>Profile
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ACTIVE JOB MODAL ================= -->
+
+<div class="modal" id="activeJobModal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeModal('activeJobModal')">
+
+      ×
+
+    </button>
+
+    <h2>🛠️ Active Work</h2>
+
+    <p class="small">
+      Update your customer's project progress.
+    </p>
+
+    <br>
+
+    <div class="form-group">
+
+      <label>Progress</label>
+
+      <select id="progressSelect">
+
+        <option value="25">25%</option>
+        <option value="45" selected>45%</option>
+        <option value="50">50%</option>
+        <option value="75">75%</option>
+        <option value="100">100%</option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Work Description</label>
+
+      <textarea
+        id="progressDescription"
+        rows="3"
+        placeholder="What work has been completed?"></textarea>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Upload Progress Photos</label>
+
+      <input
+        id="progressPhotos"
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="previewPhotos(event)">
+
+    </div>
+
+    <div id="photoPreview" class="photo-grid"></div>
+
+    <div class="form-group">
+
+      <label>Material Used</label>
+
+      <input
+        id="materialName"
+        placeholder="Example: Cement">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Material Cost</label>
+
+      <input
+        id="materialCost"
+        type="number"
+        placeholder="₹ Example: 2500">
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Additional Notes</label>
+
+      <textarea
+        id="progressNotes"
+        rows="3"
+        placeholder="Additional information..."></textarea>
+
+    </div>
+
+    <button
+      class="btn primary full"
+      onclick="submitProgress()">
+
+      Submit Progress Update
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <strong>LABOURS.COM</strong>
+
+  <p style="margin-top:10px">
+    Find Work. Find Skilled Labour. Build Better.
+  </p>
+
+  <p style="margin-top:15px;font-size:13px">
+    © 2026 Labours.com · Demo Prototype
+  </p>
+
+</footer>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/* ==========================================
+   DEMO APPLICATION STATE
+========================================== */
+
+let app = {
+  role:null,
+
+  labour:{
+    name:"",
+    mobile:"",
+    experience:"",
+    profession:"",
+    price:"",
+    priceType:"",
+    verified:false
+  },
+
+  user:{
+    name:"",
+    mobile:""
+  },
+
+  job:null
+};
+
+
+/* ==========================================
+   GENERAL FUNCTIONS
+========================================== */
+
+function showToast(message){
+
+  const toast=document.getElementById("toast");
+
+  toast.innerText=message;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },3000);
+}
+
+
+function closeModal(id){
+
+  document.getElementById(id).classList.remove("show");
+
+}
+
+
+function openRole(){
+
+  document.getElementById("roleModal").classList.add("show");
+
+}
+
+
+function openLabourLogin(){
+
+  closeModal("roleModal");
+
+  document.getElementById("labourLoginModal").classList.add("show");
+
+}
+
+
+function openUserLogin(){
+
+  closeModal("roleModal");
+
+  document.getElementById("userLoginModal").classList.add("show");
+
+}
+
+
+/* ==========================================
+   LABOUR AUTHENTICATION
+========================================== */
+
+function sendLabourOTP(){
+
+  const name=
+    document.getElementById("labourName").value.trim();
+
+  const mobile=
+    document.getElementById("labourMobile").value.trim();
+
+  if(!name){
+
+    showToast("Please enter your name.");
+
+    return;
+
+  }
+
+  if(!/^[0-9]{10}$/.test(mobile)){
+
+    showToast("Enter a valid 10 digit mobile number.");
+
+    return
